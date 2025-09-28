@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import routes from './routes.js';
+import studentRoutes from './routes/students.routes.js';
+import healthRoutes from './routes/health.routes.js';
 
 const app = express();
 
@@ -9,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors({ origin: true }));
 // Endpoint Routes
-app.use(routes);
+app.use(healthRoutes)
+app.use('/api', studentRoutes);
 
 export default app;

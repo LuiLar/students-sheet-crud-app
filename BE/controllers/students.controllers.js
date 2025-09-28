@@ -1,9 +1,6 @@
-import { Router } from 'express';
-import Student from './models/student.js';
+import Student from "../models/student.js";
 
-const router = Router();
-
-router.post('/student', async (req, res) => {
+export const createStudent = async (req, res) => {
     const { first_name, last_name, age } = req.body;
 
     try {
@@ -14,9 +11,9 @@ router.post('/student', async (req, res) => {
         console.error(err);
         res.status(500).send(err);
     }
-});
+}
 
-router.get('/students', async (req, res) => {
+export const getAllStudents = async (req, res) => {
     try{
         const students = await Student.find();
         res.send(students);
@@ -24,9 +21,9 @@ router.get('/students', async (req, res) => {
         console.error(err);
         res.status(500).send(err);
     }
-});
+}
 
-router.get('/student/:id', async (req, res) => {
+export const getStudentById = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -36,9 +33,9 @@ router.get('/student/:id', async (req, res) => {
         console.error(err);
         res.status(500).send(err);
     }
-})
+}
 
-router.put('/student/:id', async (req, res) => {
+export const updateStudentById = async (req, res) => {
     const { id } = req.params;
     const { first_name, last_name, age } = req.body;
 
@@ -49,9 +46,9 @@ router.put('/student/:id', async (req, res) => {
         console.error(err);
         res.status(500).send(err);
     }
-});
+}
 
-router.delete('/student/:id', async (req, res) => {
+export const deleteStudentById = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -61,7 +58,4 @@ router.delete('/student/:id', async (req, res) => {
         console.error(err);
         res.status(500).send(err);
     }
-});
-
-export default router;
-
+}
