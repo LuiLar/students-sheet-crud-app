@@ -9,6 +9,7 @@
 *.sln
 *.sw?
 
+/BE/*.json
 /BE/Students.http
 /BE/node_modules
 /BE/.env
