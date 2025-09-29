@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import studentRoutes from './routes/students.routes.js';
-import healthRoutes from './routes/health.routes.js';
+import studentRoutes from '../routes/students.routes.js';
+import healthRoutes from '../routes/health.routes.js';
 
 const app = express();
 
